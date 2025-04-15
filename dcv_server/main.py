@@ -1,13 +1,35 @@
 import orjson
 from bento_lib.discovery import DiscoveryConfig, load_discovery_config_from_dict
-from fastapi import FastAPI, File
+from fastapi import FastAPI, File, status
+from fastapi.responses import JSONResponse
 from pydantic import ValidationError
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from typing import Annotated
 
 from .types import ValidationResponse
 from .utils import reduce_error_details, warning_to_reduced_error_details
 
 app = FastAPI()
+
+
+def serve_client():
+    # TODO
+    pass
+
+
+config_serve_client = True
+
+
+if config_serve_client:
+    app.get("/index.html")(serve_client)
+
+
+@app.exception_handler(StarletteHTTPException)
+async def handle_404_or_serve_client(_request, exc: StarletteHTTPException):
+    # TODO
+    if config_serve_client and exc.status_code == status.HTTP_404_NOT_FOUND:
+        serve_client()
+    return JSONResponse({"message": exc.detail}, status_code=exc.status_code)
 
 
 @app.post("/api/v1/validate")
