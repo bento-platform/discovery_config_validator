@@ -1,0 +1,12 @@
+{
+  "name": "dcv-client",
+  "version": "0.1.0",
+  "description": "Web service for validating Bento discovery configuration files (client component).",
+  "license": "GPL-3.0-only",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
