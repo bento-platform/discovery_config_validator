@@ -1,0 +1,19 @@
+[project]
+name = "dcv-server"
+version = "0.1.0"
+description = "Web service for validating Bento discovery configuration files (server component)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "bento-lib",
+    "fastapi~=0.115",
+    "orjson~=3.10",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.5",
+]
+
+[tool.uv.sources]
+bento-lib = { git = "https://github.com/bento-platform/bento_lib.git", branch = "feat/discovery/addl-validation" }
