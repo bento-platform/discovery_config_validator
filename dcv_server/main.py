@@ -47,3 +47,8 @@ async def validate_config(file: Annotated[bytes, File()]) -> ValidationResponse:
         return ValidationResponse(errors=[reduce_error_details(err) for err in e.errors()])
 
     return ValidationResponse(config=config, warnings=[warning_to_reduced_error_details(warn) for warn in warnings])
+
+
+@app.get("/api/v1/schema.json")
+async def discovery_config_schema():
+    return DiscoveryConfig.model_json_schema()
