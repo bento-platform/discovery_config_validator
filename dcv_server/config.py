@@ -7,6 +7,7 @@ __all__ = ["Config", "config"]
 class Config(BaseSettings):
     serve_client: bool = True
     client_path: Path = Path(__file__).parent.parent / "dcv_client" / "dist"
+    use_json_logs: bool = False
 
 
 config = Config()

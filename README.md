@@ -8,6 +8,12 @@ Web service for validating Bento discovery configuration files.
 An all-in-one image with the server and client is available as 
 [`ghcr.io/bento-platform/discovery_config_validator:edge`](https://ghcr.io/bento-platform/discovery_config_validator).
 
+### Configuration
+
+* To enable JSON logs (presumably for production), set the environment variable `USE_JSON_LOGS=True`.
+* To prevent the server from trying to serve client files, set `SERVE_CLIENT=False`.
+* To change where the server tries to serve client files from, set `CLIENT_PATH` to another path. 
+
 
 ## Developing
 
