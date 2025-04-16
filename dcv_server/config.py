@@ -1,8 +1,12 @@
+from pathlib import Path
 from pydantic_settings import BaseSettings
 
-__all__ = ["Config"]
+__all__ = ["Config", "config"]
 
 
 class Config(BaseSettings):
-    serve_client_on_404: bool = False
-    client_path: str  # TODO
+    serve_client: bool = False
+    client_path: Path = Path()  # TODO: default
+
+
+config = Config()
