@@ -15,16 +15,12 @@ from .utils import reduce_error_details, warning_to_reduced_error_details
 app = FastAPI()
 
 
-if config.serve_client:
-    app.mount("/", StaticFiles(directory=config.client_path, html=True))
-
-
 @app.exception_handler(StarletteHTTPException)
 async def handle_404_or_serve_client(request: StarletteRequest, exc: StarletteHTTPException):
     # If the server is configured to serve the client, we want to serve the client for all non-API 404s, to allow the
     # front-end framework to handle paths as needed.
     if config.serve_client and exc.status_code == status.HTTP_404_NOT_FOUND and not request.url.path.startswith("/api"):
-        return FileResponse(config.client_path, media_type="text/html")
+        return FileResponse(config.client_path / "index.html", media_type="text/html")
     return JSONResponse({"message": exc.detail}, status_code=exc.status_code)
 
 
@@ -50,3 +46,7 @@ async def validate_config(file: Annotated[bytes, File()]) -> ValidationResponse:
 @app.get("/api/v1/schema.json")
 async def discovery_config_schema():
     return DiscoveryConfig.model_json_schema()
+
+
+if config.serve_client:
+    app.mount("/", StaticFiles(directory=config.client_path, html=True))
