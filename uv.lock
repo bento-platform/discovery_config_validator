@@ -141,7 +141,7 @@ wheels = [
 [[package]]
 name = "bento-lib"
 version = "13.0.0"
-source = { git = "https://github.com/bento-platform/bento_lib.git?branch=feat%2Fdiscovery%2Faddl-validation#9b614553e3bd71b962c8c97e3bc9163f96337b5f" }
+source = { git = "https://github.com/bento-platform/bento_lib.git?branch=feat%2Fdiscovery%2Faddl-validation#13d262aef24963496d96041b40f08165bafb0fc9" }
 dependencies = [
     { name = "aiofiles" },
     { name = "aiohttp" },
