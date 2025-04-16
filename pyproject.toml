@@ -19,3 +19,6 @@ dev = [
 
 [tool.uv.sources]
 bento-lib = { git = "https://github.com/bento-platform/bento_lib.git", branch = "feat/discovery/addl-validation" }
+
+[tool.ruff]
+line-length = 120
