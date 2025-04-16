@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import JsonView from 'react18-json-view';
-import { Spin } from 'antd';
+import { Skeleton } from 'antd';
 
 const fetchSchema = () => fetch('/api/v1/schema.json').then((res) => res.json());
 
@@ -16,10 +16,10 @@ const Schema = () => {
     });
   }, []);
 
-  return (
-    <Spin spinning={isFetching}>
-      <JsonView src={schema} enableClipboard={false} collapsed={2} />
-    </Spin>
+  return isFetching ? (
+    <Skeleton active={true} title={false} />
+  ) : (
+    <JsonView src={schema} enableClipboard={false} collapsed={2} />
   );
 };
 
