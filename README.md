@@ -22,7 +22,7 @@ An all-in-one image with the server and client is available as
 1. Install `uv` (see https://github.com/astral-sh/uv?tab=readme-ov-file#installation)
 2. Clone the repository: `git clone git@github.com:bento-platform/discovery_config_validator.git`
 3. Install dependencies: `uv install`
-4. Run the server with auto-reloading: `uv run uvicorn run --reload dcv_server.main:app`. This will by default run the
+4. Run the server with auto-reloading: `uv run uvicorn --reload dcv_server.main:app`. This will by default run the
    server and serve client files built using the instructions below.
 
 ### Client
