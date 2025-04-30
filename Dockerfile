@@ -1,4 +1,4 @@
-FROM python:3.13-bullseye AS server-build
+FROM python:3.13-bookworm AS server-build
 
 RUN pip install uv
 
@@ -12,7 +12,7 @@ COPY dcv_server dcv_server
 
 RUN uv sync --frozen
 
-FROM node:22-bullseye AS client-build
+FROM node:22-bookworm AS client-build
 
 WORKDIR /app/dcv_client
 COPY dcv_client/src src
