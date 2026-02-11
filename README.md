@@ -27,7 +27,7 @@ An all-in-one image with the server and client is available as
 
 ### Client
 
-1. Install NodeJS 22.x and NPM.
+1. Install NodeJS 24.x and NPM.
 2. Go to the client directory: `cd dcv_client`
 3. Install dependencies: `npm install`
 4. Run the Webpack watch script to build the client and automatically rebuild it upon changes: `npm run watch`
